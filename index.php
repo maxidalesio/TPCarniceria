@@ -14,7 +14,10 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 	<link href="css/prettyPhoto.css" rel="stylesheet" />
-	<link href="css/style.css" rel="stylesheet" />	
+	<link href="css/style.css" rel="stylesheet" />
+	<?php 
+		require("partes/referencias.php");
+	?>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,7 +26,7 @@
     <![endif]-->
   </head>
   <body>
-	<header>		
+	
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="navigation">
 				<div class="container">	
@@ -56,8 +59,9 @@
 				</div>
 			</div>	
 		</nav>		
-	</header>
+
    
+	<div id="principal" class="container">
 	<div class="slider">
 		<div class="img-responsive">
 			<ul class="bxslider">				
@@ -67,6 +71,7 @@
 			</ul>
 		</div>	
     </div>
+	
 	
 	<div class="container">
 		<div class="text-center">
@@ -79,6 +84,7 @@
 		</div>
 	</div>
 	
+	<!--
 		<div class="box">
 			<div class="wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.4s">
 				<div class="col-sm-3">
@@ -105,7 +111,7 @@
 				</div>
 			</div>
 		</div>
-	
+	-->
 	<div class="features">
 		<div class="container">
 			<div class="text-center">
@@ -233,6 +239,7 @@
 		</div>
 	</div>
 	-->
+	</div>
 	<footer>
 		<div class="footer">
 			<div class="container">

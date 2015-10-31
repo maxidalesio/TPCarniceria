@@ -16,7 +16,7 @@
 			<li role="presentation" id="locales"><a onclick="Mostrar('GrillaLocales')">Nuestros locales</a></li>
 			<li role="presentation" id="loguear"
 			<?php 
-				session_start();
+				//session_start();
 				if(isset($_SESSION['tipo']))
 					{echo "style='display: none'";}
 				else

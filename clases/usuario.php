@@ -17,7 +17,7 @@ class usuario
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT * FROM usuarios WHERE mail=:mail AND clave=:clave");
 		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerUnusuario($id)");
-		$consulta->bindValue(':dni',$dni, PDO::PARAM_STR);
+		$consulta->bindValue(':mail',$mail, PDO::PARAM_STR);
 		$consulta->bindValue(':clave',$clave, PDO::PARAM_STR);
 		$consulta->execute();
 		$usuarioBuscado= $consulta->fetchObject('usuario');
@@ -41,7 +41,6 @@ class usuario
 			nombre,apellido,mail,clave,direccion,localidad,provincia,telefono,tipo)
 		VALUES(
 			'$this->nombre','$this->apellido','$this->mail','$this->clave','$this->direccion','$this->localidad','$this->provincia','$this->telefono','$this->tipo')");
-		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL Insertarusuario('$this->nombre','$this->clave','$this->correo','$this->sexo')");
 		$consulta->execute();
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
@@ -50,7 +49,6 @@ class usuario
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuarios");
-		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerTodoLosusuarios");
 		$consulta->execute();			
 		return $consulta->fetchAll(PDO::FETCH_CLASS, "usuario");		
 	}
@@ -59,7 +57,6 @@ class usuario
 	 {
  		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("delete from usuarios WHERE id=:id");	
-		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL Borrarusuario(:id)");		
 		$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
 		$consulta->execute();
 		return $consulta->rowCount();
@@ -69,7 +66,6 @@ class usuario
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuarios where id = $id");
-		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerUnusuario($id)");
 		$consulta->execute();
 		$usuarioBuscado= $consulta->fetchObject('usuario');
 		return $usuarioBuscado;			
@@ -78,18 +74,19 @@ class usuario
 	public function ModificarUsuario()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		//nombre,apellido,mail,clave,direccion,localidad,provincia,telefono,tipo
 		$consulta =$objetoAccesoDato->RetornarConsulta("
 			UPDATE usuarios 
-			SET nombre=:nombre, apellido=:apellido, direccion=:direccion, telefono=:telefono, mail=:mail, tipo=:tipo
+			SET nombre=:nombre, apellido=:apellido, direccion=:direccion, localidad=:localidad, provincia=:provincia, telefono=:telefono, tipo=:tipo
 			WHERE id=:id");
 		$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
 		$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
 		$consulta->bindValue(':apellido',$this->apellido, PDO::PARAM_STR);
 		$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
+		$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
+		$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
 		$consulta->bindValue(':telefono',$this->telefono, PDO::PARAM_STR);
-		$consulta->bindValue(':mail',$this->mail, PDO::PARAM_STR);
 		$consulta->bindValue(':tipo',$this->tipo, PDO::PARAM_STR);
-		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL Modificarusuario('$this->id','$this->clave','$this->correo','$this->sexo')");
 		return $consulta->execute();
 	}
 }
