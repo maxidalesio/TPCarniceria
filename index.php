@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Multi-purpose theme</title>
+    <title>Carnicería Libre</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,9 @@
 	<header>		
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="navigation">
-				<div class="container">					
+				<div class="container">	
+					<?php include("partes/menu.php"); ?>				
+					<!--
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
 							<span class="sr-only">Toggle navigation</span>
@@ -35,7 +37,7 @@
 							<span class="icon-bar"></span>
 						</button>
 						<div class="navbar-brand">
-							<a href="index.html"><h1><span>M</span>ulti</h1></a>
+							<a href="index.html"><h1><span>C</span>arnicería Libre</h1></a>
 						</div>
 					</div>
 					
@@ -49,7 +51,8 @@
 								<li role="presentation"><a href="contact.html">Contact</a></li>						
 							</ul>
 						</div>
-					</div>						
+					</div>
+					-->						
 				</div>
 			</div>	
 		</nav>		
@@ -128,6 +131,7 @@
 		</div>
 	</div>
 	
+	<!--
 	<div class="main-feature">
 		<div class="container">
 			<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
@@ -184,6 +188,7 @@
 		
 	</div>
 	
+	
 	<div class="about-us">
 		<div class="container">
 			<div class="text-center">
@@ -227,17 +232,16 @@
 			</div>	
 		</div>
 	</div>
-	
+	-->
 	<footer>
 		<div class="footer">
 			<div class="container">
 				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
-					<h2>Multi</h2>
-					<p>In a elit in lorem congue varius. Sed nec arcu.
-					Etiam sit amet augue.
-					Fusce fermen tum neque a rutrum varius odio pede 
-					ullamcorp-er tellus ut dignissim nisi risus non tortor.
-					Aliquam mollis neque.</p>
+					<h2>Carnicería Libre</h2>
+					<p>Lugar para hacer tus pedidos
+					con un anticipo mínimo de 5 días.
+					Variedad, calidad y envío a domicilio.
+					</p>
 					
 					<ul class="social-network">
 						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
@@ -249,21 +253,15 @@
 				</div>
 				
 				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.4s">
-					<h3>RECENT POSTS</h3>
-					<ul>
-						<li>Awesome Design with Overviews</li><hr>
-						<li>Great Design with Features </li><hr>
-						<li>Limitless functions & Works </li><hr>
-						<li>Multi is simple and clean design</li>
-					</ul>
+					
 				</div>
 				
 				<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
 					<h3>CONTACT INFO</h3>
 					<ul>
-						<li><i class="fa fa-home fa-2x"></i> Office # 38, Suite 54 Elizebth Street, Victoria State Newyork, USA 33026</li><hr>
-						<li><i class="fa fa-phone fa-2x"></i> +38 000 129900</li><hr>
-						<li><i class="fa fa-envelope fa-2x"></i> info@domain.net</li>
+						<li><i class="fa fa-home fa-2x"></i> Sucre 240</li><hr>
+						<li><i class="fa fa-phone fa-2x"></i> +54 4203 3452</li><hr>
+						<li><i class="fa fa-envelope fa-2x"></i> carniceria@libre.com</li>
 					</ul>
 				</div>
 				
