@@ -12,9 +12,10 @@ body {
 	font-family:'Open Sans', Arial, sans-serif;
 	font-size:14px;
 	font-weight:300;
+  font-color:#231F22;
 	line-height:1.6em;
 	color:#fff;
-	background-color:#f8965c;
+	background-color:#d06666;
 	overflow-x:hidden;
 }
 
@@ -85,7 +86,7 @@ a:hover {
   Menu and Navigation
 ============================ */
 .navigation  {
-	background-color:#f8965c;
+	background-color:#d06666;
 	padding:0;
 }
 

@@ -11,6 +11,7 @@ if(!isset($_SESSION['mail'])){
             if(isset($_COOKIE['mail']))
               {echo "value='".$_COOKIE['mail']."'";}
           ?>>
+          <br>
           <label for="clave" class="sr-only">clave</label>
           <input type="password" id="clave" class="form-control" placeholder="Contraseña" required="" autofocus="">
           <div class="checkbox">
@@ -18,10 +19,16 @@ if(!isset($_SESSION['mail'])){
               <input type="checkbox" id="recordarme" checked> Recordame
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+        <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
         
-      </form>
+      
       <button class="btn btn-lg btn-primary btn-block" style="background-color:blue" onclick="Mostrar('MostrarRegistro')">Registrarme</button>
+      <br>-->
+        
+          
+            <input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar">
+            <a onclick="Mostrar('MostrarRegistro')" class="btn btn-lg btn-primary btn-block">Registrarse</a>
+      </form>
       <br>
     </div>
      <!-- /container -->

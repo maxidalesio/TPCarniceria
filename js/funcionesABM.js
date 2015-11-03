@@ -1,9 +1,9 @@
 function GuardarUsuario()
 {
-		//alert("Guardar");		
+		alert("Guardar");		
 
-		var formData = new FormData(document.getElementById("FormAltaUsuario"));
-        formData.append("queHacer", "GuardarUsuario");
+		var formData = new FormData(document.getElementById("FormRegistro"));
+		formData.append("queHacer", "GuardarUsuario");
 
         if (document.getElementById('user').checked) {
 			formData.append("tipo", "user");
@@ -22,8 +22,8 @@ function GuardarUsuario()
 	    processData: false
 	});
 	funcionAjax.done(function(retorno){
-		//alert(retorno);
-		Mostrar('GrillaUsuarios');
+		alert(retorno);
+		MostrarLogin();
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);

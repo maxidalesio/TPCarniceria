@@ -10,13 +10,14 @@ switch ($queHago) {
 		include("partes/formLogin.php");
 		break;
 	case 'MostarMenu':
-		include("partes/barraMenu.php");
+		include("partes/menu.php");
 		break;
 	case 'Inicio':
 		header("location: index.php");
 		break;
-	case 'AltaUsuario':
-		include("partes/formAltaUsuario.php");
+	case 'MostrarRegistro':
+		include("partes/formRegistro.php");
+		break;
 		break;
 	case 'GrillaUsuarios':
 		include("partes/formGrillaUsuarios.php");
@@ -26,11 +27,12 @@ switch ($queHago) {
 		$usuario->id=$_POST['txtId'];
 		$usuario->nombre=$_POST['txtNombre'];
 		$usuario->apellido=$_POST['txtApellido'];
-		$usuario->dni=$_POST['txtDni'];
+		$usuario->mail=$_POST['txtEmail'];
 		$usuario->clave=$_POST['txtClave'];
 		$usuario->direccion=$_POST['txtDireccion'];
+		$usuario->localidad=$_POST['txtLocalidad'];
+		$usuario->provincia=$_POST['txtProvincia'];
 		$usuario->telefono=$_POST['txtTelefono'];
-		$usuario->mail=$_POST['txtMail'];
 		$usuario->tipo=$_POST['tipo'];
 		
 		$cantidad=$usuario->GuardarUsuario();
@@ -50,9 +52,7 @@ switch ($queHago) {
 	case 'GrillaLocales':
 		include("partes/formGrillaLocales.php");
 		break;
-	case 'MostrarRegistro':
-		include("partes/formRegistro.php");
-		break;
+	
 	/*case 'AltaLocal':
 		include("partes/formAltaLocal.php");
 		break;

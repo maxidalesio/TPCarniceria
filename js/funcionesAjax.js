@@ -7,7 +7,7 @@ function Mostrar(queMostrar)
 		data:{queHacer:queMostrar}
 	});
 	funcionAjax.done(function(retorno){
-		alert("Algo");
+		alert("Mostrando "+queMostrar);
 		$("#principal").html(retorno);
 	});
 	funcionAjax.fail(function(retorno){

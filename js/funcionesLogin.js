@@ -8,7 +8,7 @@ function MostrarLogin()
 		data:{queHacer:"MostrarLogin"}
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		$("#principal").html(retorno);
 	});
 	funcionAjax.fail(function(retorno){
