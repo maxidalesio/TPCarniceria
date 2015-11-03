@@ -36,7 +36,9 @@ switch ($queHago) {
 		$usuario->tipo=$_POST['tipo'];
 		
 		$cantidad=$usuario->GuardarUsuario();
-		echo $cantidad;
+		session_start();
+		if(isset($_SESSION['tipo']))
+			{echo $_SESSION['tipo'];}
 		//echo var_dump($usuario->GuardarUsuario());
 		break;
 	case 'BorrarUsuario':

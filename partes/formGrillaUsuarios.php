@@ -12,7 +12,7 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Nombre</th><th>Apellido</th><th>Email</th><th>Dirección</th><th>Teléfono</th><th>E-mail</th><th>Tipo</th><th>Editar</th><th>Borrar</th>
+				<th>Nombre</th><th>Apellido</th><th>Email</th><th>Dirección</th><th>Localidad</th><th>Provincia</th><th>Teléfono</th><th>E-mail</th><th>Tipo</th><th>Editar</th><th>Borrar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +24,8 @@
 							<td>$usuario->apellido</td>
 							<td>$usuario->mail</td>
 							<td>$usuario->direccion</td>
+							<td>$usuario->localidad</td>
+							<td>$usuario->provincia</td>
 							<td>$usuario->telefono</td>
 							<td>$usuario->mail</td>
 							<td>$usuario->tipo</td>

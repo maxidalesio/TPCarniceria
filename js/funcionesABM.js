@@ -12,6 +12,7 @@ function GuardarUsuario()
 			formData.append("tipo", "admin");
 		}
 
+
 		var funcionAjax=$.ajax({
 		url: "nexo.php",
         type: "post",
@@ -23,11 +24,16 @@ function GuardarUsuario()
 	});
 	funcionAjax.done(function(retorno){
 		alert(retorno);
-		if($('#txtId').val() != "") {
-			Mostrar('GrillaUsuarios');
+		if($('#txtId').val() == "") {
+			MostrarLogin();
 		}
 		else
-			{MostrarLogin();}
+		{
+			if (retorno =="admin")
+				Mostrar('GrillaUsuarios');
+			else
+				Mostrar('PanelUsuario');
+		}
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);
