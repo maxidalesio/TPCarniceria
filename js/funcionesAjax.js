@@ -17,14 +17,15 @@ function Mostrar(queMostrar)
 
 function MostarMenu()
 {
-	//alert("MostarMenu");
+	alert("MostarMenu");
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{queHacer:"MostarMenu"}
 	});
 	funcionAjax.done(function(retorno){
-		$("#barraMenu").html(retorno);
+		alert(retorno);
+		$("#menu").html(retorno);
 	});
 	funcionAjax.fail(function(retorno){
 		alert(retorno);

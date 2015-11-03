@@ -29,7 +29,7 @@
 	
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="navigation">
-				<div id="barraMenu" class="container">	
+				<div id="menu" class="container">	
 					<?php include("partes/menu.php"); ?>				
 					<!--
 					<div class="navbar-header">

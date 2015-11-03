@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <div class="navbar-header">
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
 		<span class="sr-only">Toggle navigation</span>
@@ -16,7 +19,6 @@
 			<li role="presentation" id="locales"><a onclick="Mostrar('GrillaLocales')">Nuestros Productos</a></li>
 			<li role="presentation" id="loguear"
 			<?php 
-				//session_start();
 				if(isset($_SESSION['tipo']))
 					{echo "style='display: none'";}
 				else

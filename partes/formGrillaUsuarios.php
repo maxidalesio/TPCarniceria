@@ -12,7 +12,7 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Nombre</th><th>Apellido</th><th>mail</th><th>Dirección</th><th>Teléfono</th><th>E-mail</th><th>Tipo</th><th>Editar</th><th>Borrar</th>
+				<th>Nombre</th><th>Apellido</th><th>Email</th><th>Dirección</th><th>Teléfono</th><th>E-mail</th><th>Tipo</th><th>Editar</th><th>Borrar</th>
 			</tr>
 		</thead>
 		<tbody>

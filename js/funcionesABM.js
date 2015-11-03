@@ -22,7 +22,7 @@ function GuardarUsuario()
 	    processData: false
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		MostrarLogin();
 	});
 	funcionAjax.fail(function(retorno){	

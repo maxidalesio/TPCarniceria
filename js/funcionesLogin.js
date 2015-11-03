@@ -40,7 +40,7 @@ function validarLogin()
 		//alert(retorno);
 		if (retorno!="error") {
 			MostarMenu();
-			Mostrar("GrillaLocales");
+			Mostrar("GrillaUsuarios");
 		}
 		else{
 			alert("Usuario o clave incorecta.");
