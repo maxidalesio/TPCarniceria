@@ -42,7 +42,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="txtDomicilio">Dirección:</label>  
+      <label class="col-md-4 control-label" for="txtDireccion">Dirección:</label>  
       <div class="col-md-4">
       <input id="txtDireccion" name="txtDireccion" type="text" placeholder="" class="form-control input-md" required="">
       <span class="help-block">Ingrese su dirección.</span>  
@@ -51,7 +51,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="txtDomicilio">Localidad:</label>  
+      <label class="col-md-4 control-label" for="txtLocalidad">Localidad:</label>  
       <div class="col-md-4">
       <input id="txtLocalidad" name="txtLocalidad" type="text" placeholder="" class="form-control input-md" required="">
       <span class="help-block">Ingrese su Localidad.</span>  
@@ -60,7 +60,7 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="txtDomicilio">Provincia:</label>  
+      <label class="col-md-4 control-label" for="txtProvincia">Provincia:</label>  
       <div class="col-md-4">
       <input id="txtProvincia" name="txtProvincia" type="text" placeholder="" class="form-control input-md" required="">
       <span class="help-block">Ingrese su Provincia.</span>  

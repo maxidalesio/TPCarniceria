@@ -22,8 +22,12 @@ function GuardarUsuario()
 	    processData: false
 	});
 	funcionAjax.done(function(retorno){
-		//alert(retorno);
-		MostrarLogin();
+		alert(retorno);
+		if($('#txtId').val() != "") {
+			Mostrar('GrillaUsuarios');
+		}
+		else
+			{MostrarLogin();}
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);
@@ -51,8 +55,8 @@ function BorrarUsuario(idParametro)
 
 function EditarUsuario(idParametro)
 {	
-	//alert(idParametro);
-	Mostrar('AltaUsuario');
+	alert(idParametro);
+	Mostrar('MostrarRegistro');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -72,10 +76,12 @@ function EditarUsuario(idParametro)
 		$('#txtApellido').val(usuario.apellido);
 		//alert(usuario.apellido);		
 		$('#txtDireccion').val(usuario.direccion);
+		$('#txtLocalidad').val(usuario.localidad);
+		$('#txtProvincia').val(usuario.provincia);
 		//alert(usuario.direccion);
 		$('#txtTelefono').val(usuario.telefono);
 		//alert(usuario.telefono);
-		$('#txtMail').val(usuario.mail);
+		$('#txtEmail').val(usuario.mail);
 		//alert(usuario.mail);
 		if (usuario.tipo == "user") {
 			document.getElementById('user').checked = true;
@@ -83,7 +89,7 @@ function EditarUsuario(idParametro)
 		else {
 			document.getElementById('admin').checked = true;
 		}
-		$('#txtmail').val(usuario.mail);
+		//$('#txtmail').val(usuario.mail);
 		$('#divmail').hide();
 		$('#txtClave').val(usuario.clave);
 		$('#divClave').hide();

@@ -49,11 +49,12 @@ switch ($queHago) {
 		$usuario = usuario::TraerUnUsuario($_POST['id']);
 		echo json_encode($usuario);
 	break;
+	/*
 	case 'GrillaLocales':
 		include("partes/formGrillaLocales.php");
 		break;
 	
-	/*case 'AltaLocal':
+	case 'AltaLocal':
 		include("partes/formAltaLocal.php");
 		break;
 	case 'GuardarLocal':

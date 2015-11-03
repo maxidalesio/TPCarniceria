@@ -5,7 +5,7 @@
 	$arrayDeUsuarios=usuario::TraerTodoLosUsuarios();
 ?>
 <div align="right">
-	<button onclick="Mostrar('AltaUsuario')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Usuario</button>
+	<button onclick="Mostrar('MostrarRegistro')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Usuario</button>
 </div>
 <br>
 <div>
