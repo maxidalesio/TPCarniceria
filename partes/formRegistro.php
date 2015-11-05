@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <form class="form-horizontal" onsubmit="GuardarUsuario();return false;" id="FormRegistro" method="post" enctype="multipart/form-data" >
  <fieldset>
 
@@ -57,15 +61,41 @@
       <span class="help-block">Ingrese su Localidad.</span>  
       </div>
     </div>
+    
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="txtProvincia">Provincia:</label>  
-      <div class="col-md-4">
-      <input id="txtProvincia" name="txtProvincia" type="text" placeholder="" class="form-control input-md" required="">
-      <span class="help-block">Ingrese su Provincia.</span>  
-      </div>
-    </div>
+            <!-- Select Provincias-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="txtProvincia">Provincia</label>  
+              <div class="col-md-4">
+              <select id="txtProvincia" name="txtProvincia" class="form-control input-md">
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="CABA">CABA</option>
+                <option value="Catamarca">Catamarca</option>
+                <option value="Chaco">Chaco</option>
+                <option value="Chubut">Chubut</option>
+                <option value="Córdoba">Córdoba</option>
+                <option value="Corrientes">Corrientes</option>
+                <option value="Entre Ríos">Entre Ríos</option>
+                <option value="Formosa">Formosa</option>
+                <option value="Jujuy">Jujuy</option>
+                <option value="La Pampa">La Pampa</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="Misiones">Misiones</option>
+                <option value="Neuquén">Neuquén</option>
+                <option value="Río Negro">Río Negro</option>
+                <option value="Salta">Salta</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Santiago del Estero">Santiago del Estero</option>
+                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                <option value="Tucumán">Tucumán</option>
+              </select>
+              <span class="help-block">Ingrese su provincia.</span>  
+              </div>
+            </div>      
 
     <!-- Text input-->
     <div class="form-group">
@@ -79,7 +109,6 @@
     <!-- Multiple Radios (inline) -->
     <div class='form-group'
     <?php 
-        session_start();
         if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
           {echo "style='display: block'";}
         else

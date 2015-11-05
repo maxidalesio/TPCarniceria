@@ -18,6 +18,8 @@ switch ($queHago) {
 	case 'MostrarRegistro':
 		include("partes/formRegistro.php");
 		break;
+	case 'MostrarFormProducto':
+		include("partes/formProducto.php");
 		break;
 	case 'GrillaUsuarios':
 		include("partes/formGrillaUsuarios.php");
