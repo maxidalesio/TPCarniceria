@@ -39,7 +39,7 @@ switch ($queHago) {
 		$usuario->nombre=$_POST['txtNombre'];
 		$usuario->apellido=$_POST['txtApellido'];
 		$usuario->mail=$_POST['txtEmail'];
-		$usuario->clave=md5($_POST['txtClave']);
+		$usuario->clave=$_POST['txtClave'];
 		$usuario->direccion=$_POST['txtDireccion'];
 		$usuario->localidad=$_POST['txtLocalidad'];
 		$usuario->provincia=$_POST['txtProvincia'];

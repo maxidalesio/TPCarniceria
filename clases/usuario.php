@@ -35,6 +35,7 @@ class usuario
 
 	public function InsertarUsuario()
 	{
+		$this->clave = md5($this->clave);
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO usuarios(
 			nombre,apellido,mail,clave,direccion,localidad,provincia,telefono,tipo)
