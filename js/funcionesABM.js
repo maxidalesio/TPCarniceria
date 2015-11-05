@@ -1,7 +1,6 @@
 function GuardarUsuario()
 {
-		alert("Guardar");		
-
+	//alert("Guardar");
 		var formData = new FormData(document.getElementById("FormRegistro"));
 		formData.append("queHacer", "GuardarUsuario");
 
@@ -24,20 +23,19 @@ function GuardarUsuario()
 	});
 	funcionAjax.done(function(retorno){
 		alert(retorno);
-		if($('#txtId').val() == "") {
+		if($('#txtId').val() == "" && retorno !="El mail ya está registrado") {
 			MostrarLogin();
 		}
-		else
-		{
-			if (retorno =="admin")
-				Mostrar('GrillaUsuarios');
-			else
-				Mostrar('PanelUsuario');
-		}
+		if (retorno =="admin")
+			Mostrar('GrillaUsuarios');
+		if (retorno =="user")
+			Mostrar('PanelUsuario');
+		
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);
 	});
+	
 }
 
 function BorrarUsuario(idParametro)

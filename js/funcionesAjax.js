@@ -24,7 +24,7 @@ function MostarMenu()
 		data:{queHacer:"MostarMenu"}
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		$("#menu").html(retorno);
 	});
 	funcionAjax.fail(function(retorno){

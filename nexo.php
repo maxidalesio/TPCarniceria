@@ -22,24 +22,32 @@ switch ($queHago) {
 	case 'GrillaUsuarios':
 		include("partes/formGrillaUsuarios.php");
 		break;
+	case 'Productos':
+		include("partes/spreadProductos.php");
+		break;	
 	case 'GuardarUsuario':
+		if (usuario::TraerUnUsuarioPorMail($_POST['txtEmail']) && $_POST['txtId'] == "")
+		{
+			echo "El mail ya está registrado";
+		}
+		else
+		{
 		$usuario = new usuario();
 		$usuario->id=$_POST['txtId'];
 		$usuario->nombre=$_POST['txtNombre'];
 		$usuario->apellido=$_POST['txtApellido'];
 		$usuario->mail=$_POST['txtEmail'];
-		$usuario->clave=$_POST['txtClave'];
+		$usuario->clave=md5($_POST['txtClave']);
 		$usuario->direccion=$_POST['txtDireccion'];
 		$usuario->localidad=$_POST['txtLocalidad'];
 		$usuario->provincia=$_POST['txtProvincia'];
 		$usuario->telefono=$_POST['txtTelefono'];
-		$usuario->tipo=$_POST['tipo'];
-		
+		$usuario->tipo=$_POST['tipo'];	
 		$cantidad=$usuario->GuardarUsuario();
 		session_start();
 		if(isset($_SESSION['tipo']))
 			{echo $_SESSION['tipo'];}
-		//echo var_dump($usuario->GuardarUsuario());
+		}//echo var_dump($usuario->GuardarUsuario());
 		break;
 	case 'BorrarUsuario':
 		$usuario = new usuario();

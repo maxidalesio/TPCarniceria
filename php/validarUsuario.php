@@ -3,7 +3,7 @@
 	require_once("../clases/usuario.php");
 
 	$mail=$_POST['mail'];
-	$clave=$_POST['clave'];
+	$clave=md5($_POST['clave']);
 	$recordar=$_POST['recordarme'];
 
 	$unUsuario = usuario::ValidarUsuario($mail,$clave);
@@ -22,7 +22,7 @@
 		{
 			setcookie("mail", $mail, time()-36000, '/');			
 		}
-		echo $recordar;
+		echo $_SESSION['tipo'];
 	}
 	else
 	{

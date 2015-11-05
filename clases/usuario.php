@@ -71,6 +71,16 @@ class usuario
 		return $usuarioBuscado;			
 	}
 
+	 public static function TraerUnUsuarioPorMail($mail) 
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuarios where mail = :mail");
+		$consulta->bindValue(':mail',$mail, PDO::PARAM_STR);	
+		$consulta->execute();
+		$usuarioBuscado= $consulta->fetchObject('usuario');
+		return $usuarioBuscado;			
+	}
+
 	public function ModificarUsuario()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 

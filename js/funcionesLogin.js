@@ -40,7 +40,10 @@ function validarLogin()
 		//alert(retorno);
 		if (retorno!="error") {
 			MostarMenu();
-			Mostrar("GrillaUsuarios");
+			if (retorno =="admin")
+				Mostrar("GrillaUsuarios");
+			else
+				Mostrar("Productos");
 		}
 		else{
 			alert("Usuario o clave incorecta.");

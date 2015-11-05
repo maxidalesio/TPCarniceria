@@ -16,7 +16,7 @@ session_start();
 	<div class="menu">
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation"><a onclick="MostrarInicio()">Inicio</a></li>
-			<li role="presentation" id="locales"><a onclick="Mostrar('GrillaLocales')">Nuestros Productos</a></li>
+			<li role="presentation" id="locales"><a onclick="Mostrar('Productos')">Nuestros Productos</a></li>
 			<li role="presentation" id="loguear"
 			<?php 
 				if(isset($_SESSION['tipo']))
