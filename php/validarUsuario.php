@@ -12,6 +12,7 @@
 	{
 		session_start();
 		$_SESSION['mail'] = $unUsuario->mail;
+		$_SESSION['id'] = $unUsuario->id;
 		$_SESSION['clave'] = $unUsuario->clave;
 		$_SESSION['tipo'] = $unUsuario->tipo;		
 		if($recordar == "true")

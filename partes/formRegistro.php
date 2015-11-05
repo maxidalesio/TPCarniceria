@@ -23,7 +23,7 @@
     </div>
 
     <!-- Text input-->
-    <div class="form-group">
+    <div id="divmail" class="form-group">
       <label class="col-md-4 control-label" for="txtEmail">Email:</label>  
       <div class="col-md-4">
       <input id="txtEmail" name="txtEmail" type="text" placeholder="" class="form-control input-md" required="">
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Password input-->
-    <div class="form-group">
+    <div id="divClave" class="form-group">
       <label class="col-md-4 control-label" for="txtClave">Clave:</label>
       <div class="col-md-4">
         <input id="txtClave" name="txtClave" type="password" placeholder="" class="form-control input-md" required="">
