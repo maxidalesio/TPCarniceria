@@ -1,7 +1,7 @@
 <?php 
 require_once("clases/AccesoDatos.php");
 require_once("clases/usuario.php");
-//require_once("clases/local.php");
+require_once("clases/producto.php");
 
 $queHago=$_POST['queHacer'];
 
@@ -61,6 +61,9 @@ switch ($queHago) {
 		$usuario = usuario::TraerUnUsuario($_POST['id']);
 		echo json_encode($usuario);
 	break;
+	case 'GuardarProducto':
+		include("partes/guardarProducto.php");	
+		break;
 	/*
 	case 'GrillaLocales':
 		include("partes/formGrillaLocales.php");

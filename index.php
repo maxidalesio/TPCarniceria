@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
 	<link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />	
 	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 	<link href="css/prettyPhoto.css" rel="stylesheet" />
 	<link href="css/style.css" rel="stylesheet" />

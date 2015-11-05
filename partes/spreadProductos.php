@@ -13,3 +13,4 @@ echo "En construcción";
 >
 	<button onclick="Mostrar('MostrarFormProducto')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Producto</button>
 </div>
+<br>

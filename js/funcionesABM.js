@@ -104,12 +104,12 @@ function EditarUsuario(idParametro)
 	});
 }
 
-function GuardarLocal()
+function GuardarProducto()
 {
-		//alert("Guardar");
+		alert("Guardar Producto");
 
-		var formData = new FormData(document.getElementById("FormAltaLocal"));
-        formData.append("queHacer", "GuardarLocal");
+		var formData = new FormData(document.getElementById("FormProducto"));
+        formData.append("queHacer", "GuardarProducto");
         formData.append("imgPerfil", $('#imgPerfil').attr("src"));
 
 		var funcionAjax=$.ajax({
@@ -122,9 +122,9 @@ function GuardarLocal()
 	    processData: false
 	});
 	funcionAjax.done(function(retorno){
-		//alert(retorno);
+		alert(retorno);
 		//MostrarInicio();
-		Mostrar('GrillaLocales');
+		Mostrar('Productos');
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno.responseText);
