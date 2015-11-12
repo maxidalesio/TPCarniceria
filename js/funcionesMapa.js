@@ -1,6 +1,6 @@
-function VerEnMapa(prov, dire, loc, foto, descripcion)
+function VerEnMapa(dire, loc, prov, descripcion)
 {
-    //alert(prov + dire +  loc);
+    alert(prov + dire +  loc + descripcion);
     var punto = dire +", " +  loc  +", " +  prov +", Argentina";
     console.log(punto);
     var funcionAjax=$.ajax({
@@ -14,7 +14,6 @@ function VerEnMapa(prov, dire, loc, foto, descripcion)
 		//alert(retorno);
 		$("#mapa").html(retorno);
         $("#punto").val(punto);
-        $("#foto").val(foto);
         $("#descripcion").val(descripcion);
 		Geolocalizacion.Marcador.iniciar();
 		Geolocalizacion.Marcador.verMarcador();

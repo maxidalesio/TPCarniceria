@@ -48,7 +48,7 @@ else
 				{
 					echo "
 					<td>
-					<form id='PedidoProd' method='post' onsubmit='GuardarPedProd();return false'>
+					<form id='detallePedido' method='post' onsubmit='GuardarPedProd();return false'>
 					<input id='txtId' name='txtId' type='hidden' placeholder='' value='".$prod->id."' class='form-control input-md' required=''>
 					<input id='txtCant' name='txtCant' type='number' placeholder='Cantidad' class='form-control input-md' required=''>
 					<input type='submit' id='btnAceptar' name='btnAceptar' class='btn btn-danger' value='Agregar al Carrito'>

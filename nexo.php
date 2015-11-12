@@ -88,7 +88,7 @@ switch ($queHago) {
 		echo json_encode($local);
 		break;*/
 	case 'VerEnMapa':
-		include("partes/formMapa.php");
+		include("partes/mostrarMapa.php");
 		break;
 	default:
 		# code...

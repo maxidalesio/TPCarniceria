@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2015 a las 20:59:48
+-- Tiempo de generación: 12-11-2015 a las 16:58:00
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -25,6 +25,31 @@ USE `tpcarniceria`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `detallepedido`
+--
+
+CREATE TABLE IF NOT EXISTS `detallepedido` (
+  `idpedido` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `idpedido` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `retiro` varchar(15) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -35,7 +60,15 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `precio` float NOT NULL,
   `tipo` varchar(30) NOT NULL,
   `foto` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `descripcion`, `info`, `precio`, `tipo`, `foto`) VALUES
+(1, 'Lechon', 'Lechon completo', 300, 'Cerdo', 'Lechon - Cerdo.jpg'),
+(2, 'Matambre', 'Matambre Completo', 200, 'Carne', 'Matambre - Carne.jpg');
 
 -- --------------------------------------------------------
 
@@ -62,12 +95,23 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `mail`, `clave`, `direccion`, `localidad`, `provincia`, `telefono`, `tipo`) VALUES
 (9, 'Maxi', 'Dalesio', 'maxi.dalesio@gmail.com', 'e3ae69b7485a1ba5dfec809789d8a55b', 'Comodoro Rivadavia 3729', 'Sarandi', 'Buenos Aires', '01143531675', 'admin'),
-(25, 'Pepe', 'Pepino', 'pepe@lalala.com', '28f2b95533afb47cbec1d823b0f1a941', 'Avenida Mitre 810', 'Avellaneda', 'Buenos Aires', '43531222', 'user'),
-(26, 'Alf', 'Alfito', 'alf@alf.com', '893f53c159eab9178ab181bad8da4262', 'Cassazza 332', 'Villa Dominico', 'Buenos Aires', '43321122', 'user');
+(25, 'Pepe', 'Pepino', 'pepe@lalala.com', '28f2b95533afb47cbec1d823b0f1a941', 'Avenida Mitre 810', 'Avellaneda', 'Buenos Aires', '43531222', 'user');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `detallepedido`
+--
+ALTER TABLE `detallepedido`
+  ADD PRIMARY KEY (`idpedido`,`id`);
+
+--
+-- Indices de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`idpedido`);
 
 --
 -- Indices de la tabla `productos`
@@ -85,6 +129,16 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
