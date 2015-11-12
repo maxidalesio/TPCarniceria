@@ -64,6 +64,16 @@ switch ($queHago) {
 	case 'GuardarProducto':
 		include("partes/guardarProducto.php");	
 		break;
+	case 'BorrarProducto':
+		$producto = new producto();
+		$producto->id=$_POST['id'];
+		$cantidad=$producto->BorrarProducto();
+		echo $cantidad;
+		break;
+	case 'TraerProducto':
+		$prod = producto::TraerUnProducto($_POST['id']);
+		echo json_encode($prod);
+		break;
 	/*
 	case 'GrillaLocales':
 		include("partes/formGrillaLocales.php");
@@ -77,16 +87,7 @@ switch ($queHago) {
 		//echo $cantidad;
 		//echo var_dump($_POST['imgPerfil']);
 		break;
-	case 'BorrarLocal':
-		$local = new local();
-		$local->id=$_POST['id'];
-		$cantidad=$local->BorrarLocal();
-		echo $cantidad;
-		break;
-	case 'TraerLocal':
-		$local = local::TraerUnLocal($_POST['id']);
-		echo json_encode($local);
-		break;*/
+	*/
 	case 'VerEnMapa':
 		include("partes/mostrarMapa.php");
 		break;

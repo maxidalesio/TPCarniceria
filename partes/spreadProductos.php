@@ -38,7 +38,7 @@ else
 				<td>$prod->descripcion</td>
 				<td>$prod->info</td>
 				<td>$prod->precio</td>
-				<td><img  class='fotoGrilla' src='fotos/".$prod->foto."' /></td>";
+				<td><img  class='fotoGrilla' src='fotos/".$prod->foto."?".$_SERVER['REQUEST_TIME']."' /></td>";
 				if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
 				{
 					echo "<td><a onclick='EditarProducto($prod->id)' class='btn btn-warning' style='color:white;'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>

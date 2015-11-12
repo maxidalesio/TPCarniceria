@@ -4,6 +4,7 @@ function Mostrar(queMostrar)
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
+		cache: false,
 		data:{queHacer:queMostrar}
 	});
 	funcionAjax.done(function(retorno){
@@ -21,6 +22,7 @@ function MostarMenu()
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
+		cache: false,
 		data:{queHacer:"MostarMenu"}
 	});
 	funcionAjax.done(function(retorno){

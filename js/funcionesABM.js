@@ -64,6 +64,7 @@ function EditarUsuario(idParametro)
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
+		cache: false,
 		data:{
 			queHacer:"TraerUsuario",
 			id:idParametro
@@ -131,59 +132,53 @@ function GuardarProducto()
 	});
 }
 
-/*
-function BorrarLocal(idParametro)
+
+function BorrarProducto(idParametro)
 {
 	//alert(idParametro);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"BorrarLocal",
+			queHacer:"BorrarProducto",
 			id:idParametro	
 		}
 	});
 	funcionAjax.done(function(retorno){
-		Mostrar('GrillaLocales');		
+		alert("id: " + retorno);
+		Mostrar('Productos');		
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);	
 	});	
 }
 
-function EditarLocal(idParametro)
+function EditarProducto(idParametro)
 {	
 	//alert(idParametro);
-	Mostrar('AltaLocal');
+	Mostrar('MostrarFormProducto');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
+		cache: false,
 		data:{
-			queHacer:"TraerLocal",
+			queHacer:"TraerProducto",
 			id:idParametro
 		}
 	});	
 	funcionAjax.done(function(retorno){
-		//alert(retorno);
-		var local =JSON.parse(retorno);
-		//alert(local);
-		$('#txtId').val(local.id);
-		//alert(local.id);
-		$('#txtDescripcion').val(local.descripcion);
-		//alert(local.nombre);	
-		$('#txtDireccion').val(local.direccion);
-		//alert(local.direccion);
-		$('#txtProvincia').val(local.provincia);
-		//alert(local.direccion);
-		$('#txtLocalidad').val(local.localidad);
-		//alert(local.direccion);
-		$('#txtTelefono').val(local.telefono);
-		//alert(local.telefono);
-		$('#imgPerfil').attr("src","fotos/"+local.foto);
+		alert(retorno);
+		var prod =JSON.parse(retorno);
+		$('#txtId').val(prod.id);
+		$('#txtNombre').val(prod.descripcion);
+		$('#txtInfo').val(prod.info);
+		$('#txtTipo').val(prod.tipo);
+		$('#txtPrecio').val(prod.precio);
+		var fecha = new Date();
+		$('#imgPerfil').attr("src","fotos/"+prod.foto+"?"+fecha);
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);
 	});
 }
 
-*/

@@ -78,7 +78,7 @@ Geolocalizacion.Marcador = Geolocalizacion.Marcador || {};
 
     self.verMarcador = function verMarcador(){
 
-        var nombre = $("#foto").val();
+        var nombre = $("#descripcion").val();
         var descripcion = $("#descripcion").val();
         var dire = $("#punto").val();
         

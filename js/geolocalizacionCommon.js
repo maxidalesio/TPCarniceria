@@ -54,7 +54,7 @@ var Geolocalizacion = Geolocalizacion || {};
           // Variable para definir el html del tooltip infowindow
           
           var iwContent = '<div id="iw_container">' +
-          '<div class="iw_title">' + descripcion + '<br>' + "<img id='imgMapa' src='fotos/" + nombre + "'" + "class='col-md-6 col-md-offset-2 fotoform'/>" + '</div>' + 
+          '<div class="iw_title">' + descripcion + '</div>' + 
           '<div class="iw_content">' + direccion + '<br />' +
           codPostal + '</div></div>';
 
