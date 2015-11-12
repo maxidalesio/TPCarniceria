@@ -32,6 +32,14 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtPrecio">Precio:</label>  
+        <div class="col-md-4">
+          <input id="txtPrecio" name="txtPrecio" type="number" placeholder="" class="form-control input-md" required="">
+          <span class="help-block">Ingrese precio del Producto.</span>  
+        </div>
+      </div>
+
       <!-- Text input File Foto-->
       <div class="form-group">
         <input type="file" name="foto" id="foto" class="col-md-9 col-md-offset-2"/>

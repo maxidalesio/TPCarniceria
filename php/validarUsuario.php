@@ -3,17 +3,17 @@
 	require_once("../clases/usuario.php");
 
 	$mail=$_POST['mail'];
-	$clave=md5($_POST['clave']);
+	$clavePost=$_POST['clave'];
 	$recordar=$_POST['recordarme'];
 
-	$unUsuario = usuario::ValidarUsuario($mail,$clave);
+	$unUsuario = usuario::ValidarUsuario($mail,md5($clavePost));
 		
 	if($unUsuario)
 	{
 		session_start();
 		$_SESSION['mail'] = $unUsuario->mail;
 		$_SESSION['id'] = $unUsuario->id;
-		$_SESSION['clave'] = $unUsuario->clave;
+		$_SESSION['clave'] = $clavePost;
 		$_SESSION['tipo'] = $unUsuario->tipo;		
 		if($recordar == "true")
 		{

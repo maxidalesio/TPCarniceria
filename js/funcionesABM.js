@@ -131,6 +131,7 @@ function GuardarProducto()
 	});
 }
 
+/*
 function BorrarLocal(idParametro)
 {
 	//alert(idParametro);
@@ -184,3 +185,5 @@ function EditarLocal(idParametro)
 		alert(retorno);
 	});
 }
+
+*/

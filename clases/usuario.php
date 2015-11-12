@@ -87,12 +87,11 @@ class usuario
 		//nombre,apellido,mail,clave,direccion,localidad,provincia,telefono,tipo
 		$consulta =$objetoAccesoDato->RetornarConsulta("
 			UPDATE usuarios 
-			SET nombre=:nombre, apellido=:apellido, clave=:clave, direccion=:direccion, localidad=:localidad, provincia=:provincia, telefono=:telefono, tipo=:tipo
+			SET nombre=:nombre, apellido=:apellido, direccion=:direccion, localidad=:localidad, provincia=:provincia, telefono=:telefono, tipo=:tipo
 			WHERE id=:id");
 		$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
 		$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
 		$consulta->bindValue(':apellido',$this->apellido, PDO::PARAM_STR);
-		$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 		$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
 		$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
 		$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);

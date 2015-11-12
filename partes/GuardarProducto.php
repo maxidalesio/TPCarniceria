@@ -5,6 +5,7 @@
 	$producto->id=$_POST['txtId'];
 	$producto->descripcion=$_POST['txtNombre'];
 	$producto->info=$_POST['txtInfo'];
+	$producto->precio=$_POST['txtPrecio'];
 	$producto->tipo=$_POST['txtTipo'];
 	if(!isset($_FILES["foto"]))
 	{

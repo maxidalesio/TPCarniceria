@@ -87,6 +87,14 @@ sub {
 img {
   border: 0;
 }
+.fotoGrilla {
+  width: 150px;
+  height: 100px;
+}
+.fotoform {
+  max-width: 200px;
+  max-height: 200px;
+}
 svg:not(:root) {
   overflow: hidden;
 }
