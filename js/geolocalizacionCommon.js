@@ -36,7 +36,7 @@ var Geolocalizacion = Geolocalizacion || {};
     }
 
     // Crea un marcador con los parametros que recibe, funcion privada que se llama desde la funcion publica displayMarkers
-    var createMarker =  function createMarker(map, latlng, descripcion, nombre, direccion, codPostal, infowin){
+    var createMarker =  function createMarker(map, latlng, nombre, direccion, codPostal, infowin){
 
         var marker = new google.maps.Marker({
           map: map,
@@ -52,9 +52,8 @@ var Geolocalizacion = Geolocalizacion || {};
        google.maps.event.addListener(marker, 'click', function() {
 
           // Variable para definir el html del tooltip infowindow
-          
           var iwContent = '<div id="iw_container">' +
-          '<div class="iw_title">' + descripcion + '</div>' + 
+          '<div class="iw_title">' + nombre + '</div>' +
           '<div class="iw_content">' + direccion + '<br />' +
           codPostal + '</div></div>';
 
@@ -97,9 +96,9 @@ var Geolocalizacion = Geolocalizacion || {};
 	    });
 	}
 	
-	self.encontrarDireccion = function(map, direccion, nombre, descripcion, geocoder, puntos, infowin){
+	self.encontrarDireccion = function(map, direccion, nombre, geocoder, puntos, infowin){
         
-         var marker = createMarker(map, 0, descripcion, nombre, direccion, "", infowin);
+         var marker = createMarker(map, 0, nombre, direccion, "", infowin);
         
         
         //hago la llamada al geodecoder de google
@@ -118,7 +117,6 @@ var Geolocalizacion = Geolocalizacion || {};
                 "lat" : results[0].geometry.location.lat(),
                 "lng": results[0].geometry.location.lng(),
                 "nombre": nombre,
-                "descripcion": descripcion,
                 "direccion" : direccion,
                 "codPostal" : ""
                 }

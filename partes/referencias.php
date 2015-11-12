@@ -9,10 +9,11 @@
 <script type="text/javascript" src="js/funcionesMapa.js"></script>
 
 
-<!-- Google (Necesarios para la Geolocalización) -->
+<!-- Google (Necesarios para la Geolocalización) 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+-->
 <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
-<script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-2.1.1.min.js"></script>
