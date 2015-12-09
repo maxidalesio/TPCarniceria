@@ -3,8 +3,6 @@ require_once("clases/AccesoDatos.php");
 require_once("clases/producto.php");
 session_start();
 $arrayDeProductos=producto::TraerTodoLosProductos();
-echo "En construcción";
-
 ?>
 <div align="right"
 <?php 
@@ -33,7 +31,8 @@ else
 		<tbody>
 
 			<?php 
-			foreach ($arrayDeProductos as $prod) {
+			foreach ($arrayDeProductos as $prod) 
+			{
 				echo"<tr>							
 				<td>$prod->descripcion</td>
 				<td>$prod->info</td>
@@ -46,15 +45,48 @@ else
 				}
 				else
 				{
-					echo "
-					<td>
-					<form id='detallePedido' method='post' onsubmit='GuardarPedProd();return false'>
-					<input id='txtId' name='txtId' type='hidden' placeholder='' value='".$prod->id."' class='form-control input-md' required=''>
-					<input id='txtCant' name='txtCant' type='number' placeholder='Cantidad' class='form-control input-md' required=''>
-					<input type='submit' id='btnAceptar' name='btnAceptar' class='btn btn-danger' value='Agregar al Carrito'>
-					</form>
-					<td>
-					";
+					$noExisteEnCarro = true;
+					if (isset($_SESSION["cart_array"]))
+					{
+						foreach ($_SESSION["cart_array"] as $each_item) 
+						{
+							while (list($key, $value) = each($each_item)) 
+							{
+								if ($key == "item_id" && $value == $prod->id) 
+								{
+		  			// That item is in cart already so let's adjust its quantity
+									echo "
+									<td>
+									<form id='detallePedido' method='post' onsubmit='EditarCarrito($prod->id);return false' enctype='multipart/form-data'>
+									<fieldset>
+									<input id='txtId".$prod->id."' name='txtId' type='hidden' placeholder='' value='".$prod->id."' class='form-control input-md' required=''>
+									<input id='txtCant".$prod->id."' name='txtCant' type='number' placeholder='Cantidad' value='".$each_item['quantity']."' class='form-control input-md' required=''>
+									<input type='submit' id='btnEditar' name='btnEditar' class='btn btn-danger' value='Editar'>
+									<a id='btnBorrar' name='btnBorrar' class='btn btn-warning' onclick='BorrarDelCarrito($prod->id)' value='Borrar'>Borrar</a>
+									</fieldset>
+									</form>
+									<td>
+									";
+									$noExisteEnCarro = false;
+								}
+							} 
+						}
+
+					}
+					if($noExisteEnCarro)
+					{
+						echo "
+						<td>
+						<form id='detallePedido' method='post' onsubmit='AgregarAlCarrito($prod->id);return false' enctype='multipart/form-data'>
+						<fieldset>
+						<input id='txtId".$prod->id."' name='txtId' type='hidden' placeholder='' value='".$prod->id."' class='form-control input-md' required=''>
+						<input id='txtCant".$prod->id."' name='txtCant' type='number' placeholder='Cantidad' class='form-control input-md' required=''>
+						<input type='submit' id='btnAceptar' name='btnAceptar' class='btn btn-danger' value='Agregar al Carrito'>
+						</fieldset>
+						</form>
+						<td>
+						";
+					}
 				}						
 				echo	"</tr>";
 			}

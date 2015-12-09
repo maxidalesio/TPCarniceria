@@ -11,7 +11,6 @@ function GuardarUsuario()
 			formData.append("tipo", "admin");
 		}
 
-
 		var funcionAjax=$.ajax({
 		url: "nexo.php",
         type: "post",
@@ -123,7 +122,7 @@ function GuardarProducto()
 	    processData: false
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		alert("ID DEL PRODUCTO"+retorno);
 		//MostrarInicio();
 		Mostrar('Productos');
 	});
@@ -182,3 +181,22 @@ function EditarProducto(idParametro)
 	});
 }
 
+function AgregarAlCarrito(id)
+{	
+	var cantidad=$("#txtCant"+id).val();
+	alert("Agrego al carro" + id + " "+ cantidad);
+	var funcionAjax=$.ajax({
+		url:"php/carrito.php",
+		type:"post",
+		data:{
+			pid:id,
+			pquantity:cantidad
+		}	
+	});
+	funcionAjax.done(function(retorno){
+		alert(retorno);
+		Mostrar('Productos');
+		//MostarMenu();
+		//MostrarLogin();			
+	});
+}

@@ -78,14 +78,13 @@ Geolocalizacion.Marcador = Geolocalizacion.Marcador || {};
 
     self.verMarcador = function verMarcador(){
 
-        var nombre = $("#descripcion").val();
-        var descripcion = $("#descripcion").val();
+        var nombre = "Nombre: " + $("#id").val();
         var dire = $("#punto").val();
         
        
         if(dire != "") {
 
-          Geolocalizacion.encontrarDireccion(map, dire, nombre, descripcion, geocoder, puntos, infoWindow);
+          Geolocalizacion.encontrarDireccion(map, dire, nombre, geocoder, puntos, infoWindow);
         }
     }
 

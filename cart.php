@@ -4,10 +4,10 @@
 // http://www.youtube.com/view_play_list?p=442E340A42191003
 session_start(); // Start session first thing in script
 // Script Error Reporting
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 ini_set('display_errors', '1');
 // Connect to the MySQL database  
-include "storescripts/connect_to_mysql.php"; 
+//include "storescripts/connect_to_mysql.php"; 
 ?>
 <?php 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

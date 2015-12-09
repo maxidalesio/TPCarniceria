@@ -58,7 +58,7 @@
 						//MUEVO EL ARCHIVO DEL TEMPORAL AL DESTINO FINAL
     					if (move_uploaded_file($_FILES["foto"]["tmp_name"],$destino))
     					{		
-      						 echo "ok";
+      						 //echo "ok";
       					}
       					else
       					{   

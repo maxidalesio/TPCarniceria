@@ -14,6 +14,7 @@ function VerEnMapa(prov, dire, loc, id)
 		$("#mapa").html(retorno);
         $("#punto").val(punto);
         $("#id").val(id);
-		
+	Geolocalizacion.Marcador.iniciar();
+	Geolocalizacion.Marcador.verMarcador();	
 	});
 }

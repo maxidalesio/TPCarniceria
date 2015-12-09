@@ -20,7 +20,9 @@ $arrayDeUsuarios=usuario::TraerTodoLosUsuarios();
 
 				<?php 
 				foreach ($arrayDeUsuarios as $usuario) {
-					$m = '"'.$usuario->provincia.'", "'.$usuario->direccion.'", "'.$usuario->localidad.'", "'.$usuario->nombre." ".$usuario->apellido.'"';
+					$m = '"'.$usuario->provincia.'", "'.$usuario->direccion.'", "'.$usuario->localidad.'", '.$usuario->id;
+
+					//$m = '"'.$usuario->provincia.'", "'.$usuario->direccion.'", "'.$usuario->localidad.'", "'.$usuario->nombre." ".$usuario->apellido.'"';
 					echo"<tr>							
 					<td>$usuario->nombre</td>
 					<td>$usuario->apellido</td>
