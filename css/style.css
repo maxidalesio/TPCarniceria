@@ -14,8 +14,8 @@ body {
 	font-weight:300;
   font-color:#231F22;
 	line-height:1.6em;
-	color:#fff;
-	background-color:#d06666;
+	color:#333;
+	background-color:#BCBCBC;
 	overflow-x:hidden;
 }
 
@@ -98,7 +98,7 @@ a:hover {
 	color:#333;		
 }
 .navbar-brand h1 span {
-	color: #ED502E;
+	color: #333;
 }
 
 .menu {
