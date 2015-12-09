@@ -21,6 +21,9 @@ switch ($queHago) {
 	case 'MostrarFormProducto':
 		include("partes/formProducto.php");
 		break;
+	case 'MostrarFormPedido':
+		include("partes/formPedido.php");
+		break;
 	case 'GrillaUsuarios':
 		include("partes/formGrillaUsuarios.php");
 		break;

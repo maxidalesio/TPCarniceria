@@ -10,6 +10,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/jquery-bootstrap-datepicker.css">
 	<link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />	
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -305,8 +306,8 @@
 	</footer>
    
 	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->	
-    <script src="js/jquery-2.1.1.min.js"></script>	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--script src="js/jquery-2.1.1.min.js"></script-->	
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>

@@ -15,6 +15,17 @@ else
 <button onclick="Mostrar('MostrarFormProducto')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Producto</button>
 </div>
 
+<div align="right"
+<?php 
+if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "user" && isset($_SESSION["cart_array"] ) && count($_SESSION["cart_array"]) > 0)
+	{echo "style='display: block'";}
+else
+	{echo "style='display: none'";}
+?>
+>
+<button onclick="Mostrar('MostrarFormPedido')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Continuar Pedido→</button>
+</div>
+
 <div>
 	<table class="table">
 		<thead>

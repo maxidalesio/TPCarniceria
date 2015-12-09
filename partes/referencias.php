@@ -15,7 +15,8 @@
 <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed 
 <script type="text/javascript" src="js/fliplightbox.min.js"></script>

@@ -1,6 +1,4 @@
-
-<div class="col-md-9 col-md-offset-2">          
-  <form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarProducto();return false" enctype="multipart/form-data">
+<form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarProducto();return false" enctype="multipart/form-data">
     <!-- Form Name -->
     <fieldset>
       <legend>Registro de Producto</legend>
@@ -58,6 +56,5 @@
       </div>
     </fieldset>    
   </form>
-</div>
 
 <br>
