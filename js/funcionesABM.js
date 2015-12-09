@@ -200,3 +200,41 @@ function AgregarAlCarrito(id)
 		//MostrarLogin();			
 	});
 }
+
+function EditarCarrito(id)
+{	
+	var cantidad=$("#txtCant"+id).val();
+	alert("Edito el carro" + id + " "+ cantidad);
+	var funcionAjax=$.ajax({
+		url:"php/carrito.php",
+		type:"post",
+		data:{
+			item_to_adjust:id,
+			quantity:cantidad
+		}	
+	});
+	funcionAjax.done(function(retorno){
+		alert(retorno);
+		Mostrar('Productos');
+		//MostarMenu();
+		//MostrarLogin();			
+	});
+}
+
+function BorrarDelCarrito(id)
+{	
+	alert("Borro del carro" + id);
+	var funcionAjax=$.ajax({
+		url:"php/carrito.php",
+		type:"post",
+		data:{
+			index_to_remove:id
+		}	
+	});
+	funcionAjax.done(function(retorno){
+		alert(retorno);
+		Mostrar('Productos');
+		//MostarMenu();
+		//MostrarLogin();			
+	});
+}
