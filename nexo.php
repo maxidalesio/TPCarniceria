@@ -79,21 +79,7 @@ switch ($queHago) {
 		echo json_encode($prod);
 		break;
 	case 'GuardarPedido':
-		session_start();
-		$pedido = new pedido();
-		$pedido->fecha=$_POST['pedfecha'];
-		$pedido->total=$_POST['pedtotal'];
-		$pedido->retiro=$_POST['pedtipo'];
-		$pedido->idusuario=$_SESSION['id'];
-		$pedido->InsertarPedido();
-		$pedido->id=pedido::TraerUltimoId();
-		foreach ($_SESSION["cart_array"] as $each_item) { 
-			$item_id = $each_item['item_id'];
-			$item_quantity= $each_item['quantity'];
-			pedido::InsertarDetalle($item_id, $pedido->id, $item_quantity);
-		}
-		unset($_SESSION["cart_array"]);
-		echo $pedido->id;
+		include("php/imprimirFactura.php");
 		break;
 	case 'guardarMarcadores':
         session_start();

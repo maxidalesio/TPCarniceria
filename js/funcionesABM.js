@@ -261,14 +261,16 @@ function GuardarPedido()
         	queHacer:"GuardarPedido",
 			pedfecha: fecha,
 			pedtotal: total,
-			pedtipo: tipo
+			pedtipo: tipo,
+			dataType: "text"
 		}
 		}
 	);
 	funcionAjax.done(function(retorno){
 		alert(retorno);
 		//MostrarInicio();
-		Mostrar('Productos');
+		//Mostrar('Productos');
+		$("#principal").html(retorno);
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno.responseText);
