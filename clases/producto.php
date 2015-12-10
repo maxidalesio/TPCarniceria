@@ -73,5 +73,19 @@ class producto
 		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL Modificarlocal('$this->id','$this->clave','$this->correo','$this->sexo')");
 		return $consulta->execute();
 	}
+
+	public static function TraerEstadisticas() 
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("
+		SELECT productos.descripcion AS ProductoNom, SUM(detallepedido.cantidad) AS CantidadProd
+		FROM productos, detallepedido
+		WHERE productos.id = detallepedido.id
+		GROUP BY productos.descripcion
+		ORDER BY SUM(detallepedido.cantidad) DESC
+		LIMIT 5");
+		$consulta->execute();
+    	return $consulta->fetchAll();		
+    }
 }
 ?>

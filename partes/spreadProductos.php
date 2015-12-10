@@ -12,6 +12,17 @@ else
 	{echo "style='display: none'";}
 ?>
 >
+<button onclick="Mostrar('Estadisticas')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Estadística de Producto Más Vendido</button>
+</div>
+
+<div align="right"
+<?php 
+if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
+	{echo "style='display: block'";}
+else
+	{echo "style='display: none'";}
+?>
+>
 <button onclick="Mostrar('MostrarFormProducto')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Producto</button>
 </div>
 

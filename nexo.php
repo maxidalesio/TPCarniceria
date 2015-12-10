@@ -102,6 +102,9 @@ switch ($queHago) {
 	case 'BorrarPedido':
 		pedido::BorrarPedido($_POST['id']);
 	break;
+	case 'Estadisticas':
+		include("partes/estadisticas.php");
+	break;
 	case 'guardarMarcadores':
         session_start();
         if(isset($_POST["marcadores"]))
