@@ -8,7 +8,7 @@ function Mostrar(queMostrar)
 		data:{queHacer:queMostrar}
 	});
 	funcionAjax.done(function(retorno){
-		alert("Mostrando "+queMostrar);
+		//alert("Mostrando "+queMostrar);
 		$("#principal").html(retorno);
 	});
 	funcionAjax.fail(function(retorno){
@@ -18,7 +18,7 @@ function Mostrar(queMostrar)
 
 function MostarMenu()
 {
-	alert("MostarMenu");
+	//alert("MostarMenu");
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",

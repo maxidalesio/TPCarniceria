@@ -1,7 +1,7 @@
 function MostrarLogin()
 {
 	//alert(queMostrar);
-	alert("Hola");
+	//alert("Hola");
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",

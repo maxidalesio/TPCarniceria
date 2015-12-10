@@ -4,7 +4,6 @@ class validadora
 
     public static function ValidarLogin($mail, $clavePost, $recordar)
     {
-        $claveEncriptada = sha1(md5($clave));
 
         $unUsuario = usuario::ValidarUsuario($mail,md5($clavePost));
 
@@ -29,7 +28,7 @@ class validadora
         }
         else
         {
-            echo "Error";       
+            echo "error";       
         }
     }
 

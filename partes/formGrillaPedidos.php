@@ -60,7 +60,7 @@ if(validadora::ValidarSesionVigente())
 				echo "<td>A mi domicilio</td>";
 		}
 
-		echo "<td>$pedido->total</td>
+		echo "<td>$".$pedido->total."</td>
 		<td><a href='php/imprimirFactura.php?id=".$pedido->idpedido."' class='btn btn-warning' style='background-color: red; color:white;'>PDF</a><a href='php/imprimirFacturaDoc.php?id=".$pedido->idpedido."' class='btn btn-warning' style='background-color: blue; color:white;'>Word</a></td>
 		<td><a onclick='BorrarPedido($pedido->idpedido)' class='btn btn-danger' style='color:white;'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span> Borrar Pedido</a></td>
 		</tr>   ";

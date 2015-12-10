@@ -21,7 +21,7 @@ function GuardarUsuario()
 		processData: false
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		if($('#txtId').val() == "" && retorno !="El mail ya está registrado") {
 			MostrarLogin();
 		}
@@ -58,7 +58,7 @@ function BorrarUsuario(idParametro)
 
 function EditarUsuario(idParametro)
 {	
-	alert(idParametro);
+	//alert(idParametro);
 	Mostrar('MostrarRegistro');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
@@ -106,7 +106,7 @@ function EditarUsuario(idParametro)
 
 function GuardarProducto()
 {
-	alert("Guardar Producto");
+	//alert("Guardar Producto");
 
 	var formData = new FormData(document.getElementById("FormProducto"));
 	formData.append("queHacer", "GuardarProducto");
@@ -122,7 +122,7 @@ function GuardarProducto()
 		processData: false
 	});
 	funcionAjax.done(function(retorno){
-		alert("ID DEL PRODUCTO"+retorno);
+		//alert("ID DEL PRODUCTO"+retorno);
 		//MostrarInicio();
 		Mostrar('Productos');
 	});
@@ -144,7 +144,7 @@ function BorrarProducto(idParametro)
 		}
 	});
 	funcionAjax.done(function(retorno){
-		alert("id: " + retorno);
+		//alert("id: " + retorno);
 		Mostrar('Productos');		
 	});
 	funcionAjax.fail(function(retorno){	
@@ -166,7 +166,7 @@ function EditarProducto(idParametro)
 		}
 	});	
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		var prod =JSON.parse(retorno);
 		$('#txtId').val(prod.id);
 		$('#txtNombre').val(prod.descripcion);
@@ -184,7 +184,7 @@ function EditarProducto(idParametro)
 function AgregarAlCarrito(id)
 {	
 	var cantidad=$("#txtCant"+id).val();
-	alert("Agrego al carro" + id + " "+ cantidad);
+	alert("Agrego al carro producto " + id + ", Cantidad "+ cantidad);
 	var funcionAjax=$.ajax({
 		url:"php/carrito.php",
 		type:"post",
@@ -194,7 +194,7 @@ function AgregarAlCarrito(id)
 		}	
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		Mostrar('Productos');
 		//MostarMenu();
 		//MostrarLogin();			
@@ -204,7 +204,7 @@ function AgregarAlCarrito(id)
 function EditarCarrito(id)
 {	
 	var cantidad=$("#txtCant"+id).val();
-	alert("Edito el carro" + id + " "+ cantidad);
+	alert("Edito producto nro " + id + ", Cantidad "+ cantidad);
 	var funcionAjax=$.ajax({
 		url:"php/carrito.php",
 		type:"post",
@@ -214,7 +214,7 @@ function EditarCarrito(id)
 		}	
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		Mostrar('Productos');
 		//MostarMenu();
 		//MostrarLogin();			
@@ -223,7 +223,7 @@ function EditarCarrito(id)
 
 function BorrarDelCarrito(id)
 {	
-	alert("Borro del carro" + id);
+	alert("Borro del carro producto nro" + id);
 	var funcionAjax=$.ajax({
 		url:"php/carrito.php",
 		type:"post",
@@ -232,7 +232,7 @@ function BorrarDelCarrito(id)
 		}	
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		Mostrar('Productos');
 		//MostarMenu();
 		//MostrarLogin();			
@@ -241,7 +241,7 @@ function BorrarDelCarrito(id)
 
 function GuardarPedido()
 {
-	 	//alert("Guardar Pedido");
+	 	
 	 	var fecha = $("#datepicker").val();
 		//alert(fecha);
 		var total = $("#txtTotal").val();
@@ -252,7 +252,7 @@ function GuardarPedido()
 		else{
 			var tipo = "domicilio";
 		}
-		alert(tipo);
+		//alert(tipo);
 		
 		var funcionAjax=$.ajax({
 			url: "nexo.php",
@@ -267,8 +267,8 @@ function GuardarPedido()
 		}
 		);
 		funcionAjax.done(function(retorno){
-			alert(retorno);
 		//MostrarInicio();
+		alert("Pedido Confirmado");
 		Mostrar('Pedidos');
 	});
 		funcionAjax.fail(function(retorno){	
@@ -297,9 +297,9 @@ function GuardarPedido()
 
 function ConsultarPorFecha()
 {
-	alert("Consulta");
+	//alert("Consulta");
 	var fecha = $("#datepicker").val();
-	alert(fecha);
+	//alert(fecha);
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -309,7 +309,7 @@ function ConsultarPorFecha()
 		}
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
+		//alert(retorno);
 		$("#resultado").html(retorno);	
 	});
 	funcionAjax.fail(function(retorno){	
