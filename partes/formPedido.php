@@ -13,7 +13,7 @@ $(document).ready(
 </script>
 
 
-<form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarProducto();return false" enctype="multipart/form-data">
+<form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarPedido();return false" enctype="multipart/form-data">
 	<!-- Form Name -->
 	<fieldset>
 		<legend>Confirmar Pedido</legend>
@@ -38,6 +38,7 @@ $(document).ready(
 					?>
 				</h4>
 		</div>
+		<input id="txtTotal" name="txtTotal" type="hidden" placeholder="" class="form-control input-md" value="<?php echo $cartTotal; ?>">
 		<!-- Text input-->
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="datepicker">Fecha:</label>  

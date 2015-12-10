@@ -2,6 +2,7 @@
 require_once("clases/AccesoDatos.php");
 require_once("clases/usuario.php");
 require_once("clases/producto.php");
+require_once("clases/pedido.php");
 
 $queHago=$_POST['queHacer'];
 
@@ -77,20 +78,23 @@ switch ($queHago) {
 		$prod = producto::TraerUnProducto($_POST['id']);
 		echo json_encode($prod);
 		break;
-	/*
-	case 'GrillaLocales':
-		include("partes/formGrillaLocales.php");
+	case 'GuardarPedido':
+		session_start();
+		$pedido = new pedido();
+		$pedido->fecha=$_POST['pedfecha'];
+		$pedido->total=$_POST['pedtotal'];
+		$pedido->retiro=$_POST['pedtipo'];
+		$pedido->idusuario=$_SESSION['id'];
+		$pedido->InsertarPedido();
+		$pedido->id=pedido::TraerUltimoId();
+		foreach ($_SESSION["cart_array"] as $each_item) { 
+			$item_id = $each_item['item_id'];
+			$item_quantity= $each_item['quantity'];
+			pedido::InsertarDetalle($item_id, $pedido->id, $item_quantity);
+		}
+		unset($_SESSION["cart_array"]);
+		echo $pedido->id;
 		break;
-	
-	case 'AltaLocal':
-		include("partes/formAltaLocal.php");
-		break;
-	case 'GuardarLocal':
-		include("partes/guardarLocal.php");		
-		//echo $cantidad;
-		//echo var_dump($_POST['imgPerfil']);
-		break;
-	*/
 	case 'guardarMarcadores':
         session_start();
         if(isset($_POST["marcadores"]))

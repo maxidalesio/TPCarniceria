@@ -238,3 +238,39 @@ function BorrarDelCarrito(id)
 		//MostrarLogin();			
 	});
 }
+
+function GuardarPedido()
+{
+	 	alert("Guardar Pedido");
+		var fecha = $("#datepicker").val();
+		alert(fecha);
+		var total = $("#txtTotal").val();
+		alert(total);
+		if (document.getElementById('sucursal').checked) {
+			var tipo = "sucursal";
+		}
+		else{
+			var tipo = "domicilio";
+		}
+		alert(tipo);
+        
+		var funcionAjax=$.ajax({
+		url: "nexo.php",
+        type: "post",
+        data: {
+        	queHacer:"GuardarPedido",
+			pedfecha: fecha,
+			pedtotal: total,
+			pedtipo: tipo
+		}
+		}
+	);
+	funcionAjax.done(function(retorno){
+		alert(retorno);
+		//MostrarInicio();
+		Mostrar('Productos');
+	});
+	funcionAjax.fail(function(retorno){	
+		alert(retorno.responseText);
+	});
+}
