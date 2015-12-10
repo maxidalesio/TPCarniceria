@@ -30,6 +30,9 @@ switch ($queHago) {
 		break;
 	case 'Productos':
 		include("partes/spreadProductos.php");
+		break;
+	case 'Pedidos':
+		include("partes/formGrillaPedidos.php");
 		break;	
 	case 'GuardarUsuario':
 		if (usuario::TraerUnUsuarioPorMail($_POST['txtEmail']) && $_POST['txtId'] == "")
@@ -79,8 +82,26 @@ switch ($queHago) {
 		echo json_encode($prod);
 		break;
 	case 'GuardarPedido':
-		include("php/imprimirFactura.php");
+		//include("php/imprimirFactura.php");
+		session_start();
+		$pedido = new pedido();
+		$pedido->fecha=$_POST['pedfecha'];
+		$pedido->total=$_POST['pedtotal'];
+		$pedido->retiro=$_POST['pedtipo'];
+		$pedido->idusuario=$_SESSION['id'];
+		$pedido->InsertarPedido();
+		$pedido->idpedido=pedido::TraerUltimoId();
+		foreach ($_SESSION["cart_array"] as $each_item) { 
+			$item_id = $each_item['item_id'];
+			$item_quantity= $each_item['quantity'];
+			pedido::InsertarDetalle($item_id, $pedido->idpedido, $item_quantity);
+		}
+		unset($_SESSION["cart_array"]);
+		echo $pedido->idpedido;
 		break;
+	case 'BorrarPedido':
+		pedido::BorrarPedido($_POST['id']);
+	break;
 	case 'guardarMarcadores':
         session_start();
         if(isset($_POST["marcadores"]))

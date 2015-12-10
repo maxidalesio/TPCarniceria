@@ -269,10 +269,28 @@ function GuardarPedido()
 	funcionAjax.done(function(retorno){
 		alert(retorno);
 		//MostrarInicio();
-		//Mostrar('Productos');
-		$("#principal").html(retorno);
+		Mostrar('Pedidos');
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno.responseText);
 	});
+}
+
+function BorrarPedido(idParametro)
+{
+	//alert(idParametro);
+		var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"BorrarPedido",
+			id:idParametro	
+		}
+	});
+	funcionAjax.done(function(retorno){
+		Mostrar('Pedidos');		
+	});
+	funcionAjax.fail(function(retorno){	
+		alert(retorno);	
+	});	
 }

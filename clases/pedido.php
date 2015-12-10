@@ -35,5 +35,56 @@ class pedido
 			'$idpedido', '$idproducto', '$cantidad')");
 		$consulta->execute();
 	}
+
+	public static function TraerUnPedido($idp) 
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from pedidos where idpedido = $idp");
+		$consulta->execute();
+		$pedidoBuscado= $consulta->fetchObject('pedido');
+		return $pedidoBuscado;			
+	}
+
+	public static function TraerDetallesPorId($idp)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from detallepedido where idpedido = $idp");
+		$consulta->execute();
+		$arrayDetalles= $consulta->fetchAll();
+		return $arrayDetalles;			
+	}
+
+	public static function TraerPedidosPorIdusuario($idu)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from pedidos where idusuario = $idu");
+		$consulta->execute();			
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "pedido");		
+	}
+
+	public static function TraerTodosLosPedidos()
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from pedidos");
+		$consulta->execute();			
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "pedido");	
+	}
+
+	public static function BorrarPedido($idp)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("delete from pedidos WHERE idpedido=:id");	
+		$consulta->bindValue(':id',$idp, PDO::PARAM_INT);		
+		$consulta->execute();
+		self::BorrarDetallesDePedido($idp);
+	}
+
+	public static function BorrarDetallesDePedido($idp)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("delete from detallepedido WHERE idpedido=:id");	
+		$consulta->bindValue(':id',$idp, PDO::PARAM_INT);		
+		$consulta->execute();
+	}
 }
 ?>

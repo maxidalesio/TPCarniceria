@@ -35,6 +35,13 @@ session_start();
 			<?php
 			echo "<a onclick='EditarUsuario(".$_SESSION['id'].")'>Mis Datos</a></li>";
 			?>
+			<li role="presentation" id="pedidos"
+			<?php 
+				if(!isset($_SESSION['tipo']))
+					{echo "style='display: none'";}
+				else
+					{echo "style='display: block'";}
+			?>><a onclick="Mostrar('Pedidos')">Ver Pedidos</a></li>
 			<li role="presentation" id="desloguear"
 			<?php 
 				if(!isset($_SESSION['tipo']))
