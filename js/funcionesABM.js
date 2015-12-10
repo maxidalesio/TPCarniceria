@@ -1,24 +1,24 @@
 function GuardarUsuario()
 {
 	//alert("Guardar");
-		var formData = new FormData(document.getElementById("FormRegistro"));
-		formData.append("queHacer", "GuardarUsuario");
+	var formData = new FormData(document.getElementById("FormRegistro"));
+	formData.append("queHacer", "GuardarUsuario");
 
-        if (document.getElementById('user').checked) {
-			formData.append("tipo", "user");
-		}
-		else{
-			formData.append("tipo", "admin");
-		}
+	if (document.getElementById('user').checked) {
+		formData.append("tipo", "user");
+	}
+	else{
+		formData.append("tipo", "admin");
+	}
 
-		var funcionAjax=$.ajax({
+	var funcionAjax=$.ajax({
 		url: "nexo.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-	    processData: false
+		type: "post",
+		dataType: "html",
+		data: formData,
+		cache: false,
+		contentType: false,
+		processData: false
 	});
 	funcionAjax.done(function(retorno){
 		alert(retorno);
@@ -40,7 +40,7 @@ function GuardarUsuario()
 function BorrarUsuario(idParametro)
 {
 	//alert(idParametro);
-		var funcionAjax=$.ajax({
+	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
@@ -106,20 +106,20 @@ function EditarUsuario(idParametro)
 
 function GuardarProducto()
 {
-		alert("Guardar Producto");
+	alert("Guardar Producto");
 
-		var formData = new FormData(document.getElementById("FormProducto"));
-        formData.append("queHacer", "GuardarProducto");
-        formData.append("imgPerfil", $('#imgPerfil').attr("src"));
+	var formData = new FormData(document.getElementById("FormProducto"));
+	formData.append("queHacer", "GuardarProducto");
+	formData.append("imgPerfil", $('#imgPerfil').attr("src"));
 
-		var funcionAjax=$.ajax({
+	var funcionAjax=$.ajax({
 		url: "nexo.php",
-        type: "post",
-        dataType: "html",
-        data: formData,
-        cache: false,
-        contentType: false,
-	    processData: false
+		type: "post",
+		dataType: "html",
+		data: formData,
+		cache: false,
+		contentType: false,
+		processData: false
 	});
 	funcionAjax.done(function(retorno){
 		alert("ID DEL PRODUCTO"+retorno);
@@ -135,7 +135,7 @@ function GuardarProducto()
 function BorrarProducto(idParametro)
 {
 	//alert(idParametro);
-		var funcionAjax=$.ajax({
+	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
@@ -242,7 +242,7 @@ function BorrarDelCarrito(id)
 function GuardarPedido()
 {
 	 	//alert("Guardar Pedido");
-		var fecha = $("#datepicker").val();
+	 	var fecha = $("#datepicker").val();
 		//alert(fecha);
 		var total = $("#txtTotal").val();
 		//alert(total);
@@ -253,33 +253,33 @@ function GuardarPedido()
 			var tipo = "domicilio";
 		}
 		alert(tipo);
-        
+		
 		var funcionAjax=$.ajax({
-		url: "nexo.php",
-        type: "post",
-        data: {
-        	queHacer:"GuardarPedido",
-			pedfecha: fecha,
-			pedtotal: total,
-			pedtipo: tipo,
-			dataType: "text"
+			url: "nexo.php",
+			type: "post",
+			data: {
+				queHacer:"GuardarPedido",
+				pedfecha: fecha,
+				pedtotal: total,
+				pedtipo: tipo,
+				dataType: "text"
+			}
 		}
-		}
-	);
-	funcionAjax.done(function(retorno){
-		alert(retorno);
+		);
+		funcionAjax.done(function(retorno){
+			alert(retorno);
 		//MostrarInicio();
 		Mostrar('Pedidos');
 	});
-	funcionAjax.fail(function(retorno){	
-		alert(retorno.responseText);
-	});
-}
+		funcionAjax.fail(function(retorno){	
+			alert(retorno.responseText);
+		});
+	}
 
-function BorrarPedido(idParametro)
-{
+	function BorrarPedido(idParametro)
+	{
 	//alert(idParametro);
-		var funcionAjax=$.ajax({
+	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
@@ -300,7 +300,7 @@ function ConsultarPorFecha()
 	alert("Consulta");
 	var fecha = $("#datepicker").val();
 	alert(fecha);
-		var funcionAjax=$.ajax({
+	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{

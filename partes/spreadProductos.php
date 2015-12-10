@@ -1,21 +1,27 @@
 <?php
+session_start();
 require_once("clases/AccesoDatos.php");
 require_once("clases/producto.php");
-session_start();
-$arrayDeProductos=producto::TraerTodoLosProductos();
-?>
+require_once("clases/usuario.php");
+require_once("clases/validadora.php");
 
-<div align="right"
-<?php 
-if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
-	{echo "style='display: block'";}
-else
-	{echo "style='display: none'";}
-?>
->
-<button onclick="Mostrar('ConsultarProductos')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Consultar Productos Pedidos Por Día</button>
-<button onclick="Mostrar('Estadisticas')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Estadística de Producto Más Vendido</button>
-<button onclick="Mostrar('MostrarFormProducto')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Producto</button>
+if(validadora::ValidarSesionVigente())
+{
+
+	$arrayDeProductos=producto::TraerTodoLosProductos();
+	?>
+
+	<div align="right"
+	<?php 
+	if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
+		{echo "style='display: block'";}
+	else
+		{echo "style='display: none'";}
+	?>
+	>
+	<button onclick="Mostrar('ConsultarProductos')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Consultar Productos Pedidos Por Día</button>
+	<button onclick="Mostrar('Estadisticas')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Estadística de Producto Más Vendido</button>
+	<button onclick="Mostrar('MostrarFormProducto')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Producto</button>
 </div>
 
 <div align="right"
@@ -123,3 +129,12 @@ else
 <div id="carrito">
 </div>
 <br>
+
+<?php   
+}
+else 
+{
+	echo "<h4 class='widgettitle col-md-6 col-md-offset-4'>Su sesión ha expirado. Por favor vuelva a loguearse.</h4>
+	<button class='btn btn-primary col-md-1 col-md-offset-6' onclick='MostrarLogin()'>Login</button>";
+}
+?>

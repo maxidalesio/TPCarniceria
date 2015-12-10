@@ -1,27 +1,36 @@
-<script type="text/javascript">
-$(document).ready(
+<?php 
+session_start();
+require_once("clases/AccesoDatos.php");
+require_once("clases/usuario.php");
+require_once("clases/validadora.php");
 
-	/* This is the function that will get executed after the DOM is fully loaded */
-	function () {
-		$("#datepicker").datepicker({
-			dateFormat: "yy/mm/dd",
-			minDate: 5,
-			language: "es",
-			todayHighlight: true
+if(validadora::ValidarSesionVigente())
+{
+	?>
+	<script type="text/javascript">
+	$(document).ready(
+
+		/* This is the function that will get executed after the DOM is fully loaded */
+		function () {
+			$("#datepicker").datepicker({
+				dateFormat: "yy/mm/dd",
+				minDate: 5,
+				language: "es",
+				todayHighlight: true
+			});
 		});
-	});
-</script>
+	</script>
 
 
-<form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarPedido();return false" enctype="multipart/form-data">
-	<!-- Form Name -->
-	<fieldset>
-		<legend>Confirmar Pedido</legend>
+	<form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarPedido();return false" enctype="multipart/form-data">
+		<!-- Form Name -->
+		<fieldset>
+			<legend>Confirmar Pedido</legend>
 
-		<div align="right">
+			<div align="right">
 				<h4>
 					<?php
-					session_start();
+					//session_start();
 					$cartTotal= 0;
 					foreach ($_SESSION["cart_array"] as $each_item) { 
 						$item_id = $each_item['item_id'];
@@ -37,34 +46,42 @@ $(document).ready(
 					echo "</br>";
 					?>
 				</h4>
-		</div>
-		<input id="txtTotal" name="txtTotal" type="hidden" placeholder="" class="form-control input-md" value="<?php echo $cartTotal; ?>">
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="datepicker">Fecha:</label>  
-			<div class="col-md-4">
-				<input id="datepicker" name="datepicker" type="text"class="form-control" required="">
-				<span class="help-block">Ingrese fecha para el Pedido, recuerde que es con mínimo 5 días de anticipación.</span>  
 			</div>
-		</div>
-		<!-- Multiple Radios (inline) -->
-		<div class='form-group'>
-			<label class='col-md-4 control-label' for='rbTipo'>Tipo</label>
-			<div class='col-md-4'> 
-				<label class='radio-inline' for='sucursal'>
-					<input type='radio' name='rbTipo' id='sucursal' checked='checked'>Retiro en el local
-				</label>
-				<label class='radio-inline' for='domicilio'>
-					<input type='radio' name='rbTipo' id='domicilio'>A mi domicilio
-				</label>
+			<input id="txtTotal" name="txtTotal" type="hidden" placeholder="" class="form-control input-md" value="<?php echo $cartTotal; ?>">
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="datepicker">Fecha:</label>  
+				<div class="col-md-4">
+					<input id="datepicker" name="datepicker" type="text"class="form-control" required="">
+					<span class="help-block">Ingrese fecha para el Pedido, recuerde que es con mínimo 5 días de anticipación.</span>  
+				</div>
 			</div>
-		</div>
+			<!-- Multiple Radios (inline) -->
+			<div class='form-group'>
+				<label class='col-md-4 control-label' for='rbTipo'>Tipo</label>
+				<div class='col-md-4'> 
+					<label class='radio-inline' for='sucursal'>
+						<input type='radio' name='rbTipo' id='sucursal' checked='checked'>Retiro en el local
+					</label>
+					<label class='radio-inline' for='domicilio'>
+						<input type='radio' name='rbTipo' id='domicilio'>A mi domicilio
+					</label>
+				</div>
+			</div>
 
-		<!-- Buttons-->
-	</div><div class="btn-group pull-right">
-	<button id="btnAtras" onclick="Mostrar('Productos'); return false" class="btn btn-sucess">Continuar Comprando</button>
-	<input type="submit" id="btnAceptar" name="btnAceptar" class="btn btn-danger" value="Confirmar">
-</div>
+			<!-- Buttons-->
+		</div><div class="btn-group pull-right">
+		<button id="btnAtras" onclick="Mostrar('Productos'); return false" class="btn btn-sucess">Continuar Comprando</button>
+		<input type="submit" id="btnAceptar" name="btnAceptar" class="btn btn-danger" value="Confirmar">
+	</div>
 </fieldset>    
 </form>
 
+<?php   
+}
+else 
+{
+	echo "<h4 class='widgettitle col-md-6 col-md-offset-4'>Su sesión ha expirado. Por favor vuelva a loguearse.</h4>
+	<button class='btn btn-primary col-md-1 col-md-offset-6' onclick='MostrarLogin()'>Login</button>";
+}
+?>

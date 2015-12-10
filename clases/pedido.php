@@ -2,12 +2,12 @@
 class pedido
 {
 	public $idpedido;
- 	public $fecha;
- 	public $retiro;
- 	public $total;
- 	public $idusuario;
+	public $fecha;
+	public $retiro;
+	public $total;
+	public $idusuario;
 
- 	public function InsertarPedido()
+	public function InsertarPedido()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO pedidos(
@@ -91,13 +91,13 @@ class pedido
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-		SELECT productos.descripcion AS Producto, sum(detallepedido.cantidad) AS Cantidad
-		FROM productos, detallepedido, pedidos
-		WHERE productos.id = detallepedido.id
-		AND detallepedido.idpedido = pedidos.idpedido
-		AND pedidos.fecha = :fecha
-		GROUP BY productos.descripcion 
-		");
+			SELECT productos.descripcion AS Producto, sum(detallepedido.cantidad) AS Cantidad
+			FROM productos, detallepedido, pedidos
+			WHERE productos.id = detallepedido.id
+			AND detallepedido.idpedido = pedidos.idpedido
+			AND pedidos.fecha = :fecha
+			GROUP BY productos.descripcion 
+			");
 		$consulta->bindValue(':fecha',$fecha, PDO::PARAM_STR);	
 		$consulta->execute();			
 		return $consulta->fetchAll();	

@@ -1,4 +1,13 @@
-<form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarProducto();return false" enctype="multipart/form-data">
+<?php
+session_start(); 
+require_once("clases/AccesoDatos.php");
+require_once("clases/usuario.php");
+require_once("clases/validadora.php");
+
+if(validadora::ValidarSesionVigente())
+{
+  ?>
+  <form class="form-horizontal" id="FormProducto" method="post" onsubmit="GuardarProducto();return false" enctype="multipart/form-data">
     <!-- Form Name -->
     <fieldset>
       <legend>Registro de Producto</legend>
@@ -57,4 +66,12 @@
     </fieldset>    
   </form>
 
-<br>
+  <br>
+  <?php   
+}
+else 
+{
+  echo "<h4 class='widgettitle col-md-6 col-md-offset-4'>Su sesión ha expirado. Por favor vuelva a loguearse.</h4>
+  <button class='btn btn-primary col-md-1 col-md-offset-6' onclick='MostrarLogin()'>Login</button>";
+}
+?>

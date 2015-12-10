@@ -2,13 +2,13 @@
 class producto
 {
 	public $id;
- 	public $descripcion;
- 	public $info;
- 	public $precio;
- 	public $tipo;
- 	public $foto;
+	public $descripcion;
+	public $info;
+	public $precio;
+	public $tipo;
+	public $foto;
 
- 	public function InsertarProducto()
+	public function InsertarProducto()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO productos(
@@ -38,14 +38,14 @@ class producto
 	}
 
 	public function BorrarProducto()
-	 {
- 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("delete from productos WHERE id=:id");	
 		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarProducto(:id)");		
 		$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
 		$consulta->execute();
 		return $consulta->rowCount();
-	 }
+	}
 
 	public static function TraerUnProducto($id) 
 	{
@@ -75,17 +75,17 @@ class producto
 	}
 
 	public static function TraerEstadisticas() 
-    {
-        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-		SELECT productos.descripcion AS ProductoNom, SUM(detallepedido.cantidad) AS CantidadProd
-		FROM productos, detallepedido
-		WHERE productos.id = detallepedido.id
-		GROUP BY productos.descripcion
-		ORDER BY SUM(detallepedido.cantidad) DESC
-		LIMIT 5");
+			SELECT productos.descripcion AS ProductoNom, SUM(detallepedido.cantidad) AS CantidadProd
+			FROM productos, detallepedido
+			WHERE productos.id = detallepedido.id
+			GROUP BY productos.descripcion
+			ORDER BY SUM(detallepedido.cantidad) DESC
+			LIMIT 5");
 		$consulta->execute();
-    	return $consulta->fetchAll();		
-    }
+		return $consulta->fetchAll();		
+	}
 }
 ?>

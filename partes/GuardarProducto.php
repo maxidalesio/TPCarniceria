@@ -1,14 +1,14 @@
 <?php
-	$foto = "pordefecto.png";
-	
-	$producto = new producto();
-	$producto->id=$_POST['txtId'];
-	$producto->descripcion=$_POST['txtNombre'];
-	$producto->info=$_POST['txtInfo'];
-	$producto->precio=$_POST['txtPrecio'];
-	$producto->tipo=$_POST['txtTipo'];
-	if(!isset($_FILES["foto"]))
-	{
+$foto = "pordefecto.png";
+
+$producto = new producto();
+$producto->id=$_POST['txtId'];
+$producto->descripcion=$_POST['txtNombre'];
+$producto->info=$_POST['txtInfo'];
+$producto->precio=$_POST['txtPrecio'];
+$producto->tipo=$_POST['txtTipo'];
+if(!isset($_FILES["foto"]))
+{
 		// no se cargo una imagen
 		/*if ($_POST['imgPerfil'] != 'fotos/pordefecto.png') {
 			$nombre = substr($_POST['imgPerfil'], 6, -1);
@@ -28,12 +28,12 @@
 		else
 		{
 			$tamanio =$_FILES['foto']['size'];
-    		if($tamanio>1024000)
-    		{
+			if($tamanio>1024000)
+			{
     				// "Error: archivo muy grande!"."<br>";
-    		}
-    		else
-    		{
+			}
+			else
+			{
     			//OBTIENE EL TAMAÑO DE UNA IMAGEN, SI EL ARCHIVO NO ES UNA
 				//IMAGEN, RETORNA FALSE
 				$esImagen = getimagesize($_FILES["foto"]["tmp_name"]);
@@ -56,17 +56,17 @@
 						$destino = "fotos/". $_POST['txtNombre']." - ". $_POST['txtTipo'].".".$Extension;
 						$foto=$_POST['txtNombre']." - ".$_POST['txtTipo']. ".".$Extension;
 						//MUEVO EL ARCHIVO DEL TEMPORAL AL DESTINO FINAL
-    					if (move_uploaded_file($_FILES["foto"]["tmp_name"],$destino))
-    					{		
-      						 echo "ok";
-      					}
-      					else
-      					{   
+						if (move_uploaded_file($_FILES["foto"]["tmp_name"],$destino))
+						{		
+							echo "ok";
+						}
+						else
+						{   
       						// algun error;
-      					}
+						}
 					}
 				}
-    		}			
+			}			
 		}
 	}
 	$producto->foto = $foto;
@@ -81,4 +81,4 @@
 	}*/
 	$cantidad=$producto->GuardarProducto();
 	echo $cantidad;
-?>
+	?>

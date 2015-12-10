@@ -36,14 +36,14 @@ $cartTotal= 0;
 $codigoHTML.="
 <table width='100%' style='padding:15px;border-bottom: 1px solid #ddd;'>
 <colgroup>
-    <col style='width:25%'>
-    <col style='width:15%'>
-    <col style='width:35%'>
-    <col style='width:25%'>
-  </colgroup>  
+<col style='width:25%'>
+<col style='width:15%'>
+<col style='width:35%'>
+<col style='width:25%'>
+</colgroup>  
 <thead>
 <tr>
-	<th>Nombre</th><th>Cantidad</th><th>Precio Unitario</th><th>Total</th>
+<th>Nombre</th><th>Cantidad</th><th>Precio Unitario</th><th>Total</th>
 </tr>
 </thead>
 <tbody>";
@@ -54,15 +54,15 @@ foreach ($arrayDetalles as $each_item) {
 	$prod = producto::TraerUnProducto($item_id);
 	if($prod)
 	{
-	$prodTotal = $item_quantity * $prod->precio;
-	$cartTotal = $cartTotal + $prodTotal;
-	$codigoHTML.="
-	<td align='right'>$prod->descripcion</td> <td align='right'>$item_quantity</td> <td align='right'>$".$prod->precio."</td> <td align='right'>$".$prodTotal."</td>";
+		$prodTotal = $item_quantity * $prod->precio;
+		$cartTotal = $cartTotal + $prodTotal;
+		$codigoHTML.="
+		<td align='right'>$prod->descripcion</td> <td align='right'>$item_quantity</td> <td align='right'>$".$prod->precio."</td> <td align='right'>$".$prodTotal."</td>";
 	}
 	else
 	{
-	$codigoHTML.="
-	<td align='right'>El Producto Ya no existe en la BBDD</td> <td align='right'>-----</td> <td align='right'>$-----</td> <td align='right'>$-----</td>";
+		$codigoHTML.="
+		<td align='right'>El Producto Ya no existe en la BBDD</td> <td align='right'>-----</td> <td align='right'>$-----</td> <td align='right'>$-----</td>";
 	}
 	$codigoHTML.="
 	</tr>";
