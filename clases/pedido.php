@@ -86,5 +86,21 @@ class pedido
 		$consulta->bindValue(':id',$idp, PDO::PARAM_INT);		
 		$consulta->execute();
 	}
+
+	public static function traerCantidadPorFecha($fecha)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("
+		SELECT productos.descripcion AS Producto, sum(detallepedido.cantidad) AS Cantidad
+		FROM productos, detallepedido, pedidos
+		WHERE productos.id = detallepedido.id
+		AND detallepedido.idpedido = pedidos.idpedido
+		AND pedidos.fecha = :fecha
+		GROUP BY productos.descripcion 
+		");
+		$consulta->bindValue(':fecha',$fecha, PDO::PARAM_STR);	
+		$consulta->execute();			
+		return $consulta->fetchAll();	
+	}
 }
 ?>

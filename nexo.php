@@ -34,6 +34,9 @@ switch ($queHago) {
 	case 'Pedidos':
 		include("partes/formGrillaPedidos.php");
 		break;	
+	case 'ConsultarProductos':
+		include("partes/formCantProductos.php");
+		break;	
 	case 'GuardarUsuario':
 		if (usuario::TraerUnUsuarioPorMail($_POST['txtEmail']) && $_POST['txtId'] == "")
 		{
@@ -104,6 +107,9 @@ switch ($queHago) {
 	break;
 	case 'Estadisticas':
 		include("partes/estadisticas.php");
+	break;
+	case 'TraerTotalProductosFecha':
+		include("partes/cantidadProdsPorFecha.php");
 	break;
 	case 'guardarMarcadores':
         session_start();

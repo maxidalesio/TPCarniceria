@@ -4,16 +4,6 @@ require_once("clases/producto.php");
 session_start();
 $arrayDeProductos=producto::TraerTodoLosProductos();
 ?>
-<div align="right"
-<?php 
-if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
-	{echo "style='display: block'";}
-else
-	{echo "style='display: none'";}
-?>
->
-<button onclick="Mostrar('Estadisticas')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Estadística de Producto Más Vendido</button>
-</div>
 
 <div align="right"
 <?php 
@@ -23,6 +13,8 @@ else
 	{echo "style='display: none'";}
 ?>
 >
+<button onclick="Mostrar('ConsultarProductos')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Consultar Productos Pedidos Por Día</button>
+<button onclick="Mostrar('Estadisticas')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Estadística de Producto Más Vendido</button>
 <button onclick="Mostrar('MostrarFormProducto')" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Nuevo Producto</button>
 </div>
 

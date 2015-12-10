@@ -10,7 +10,7 @@
 <table class="table" id="datatable" style=" background-color: beige; display:none">
     <thead>
         <tr>
-            <th>Cantante</th><th>Productos Más Vendidos</th>
+            <th>Producto</th><th>Productos Más Vendidos</th>
         </tr>
     </thead>
     <tbody>

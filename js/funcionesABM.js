@@ -241,11 +241,11 @@ function BorrarDelCarrito(id)
 
 function GuardarPedido()
 {
-	 	alert("Guardar Pedido");
+	 	//alert("Guardar Pedido");
 		var fecha = $("#datepicker").val();
-		alert(fecha);
+		//alert(fecha);
 		var total = $("#txtTotal").val();
-		alert(total);
+		//alert(total);
 		if (document.getElementById('sucursal').checked) {
 			var tipo = "sucursal";
 		}
@@ -289,6 +289,28 @@ function BorrarPedido(idParametro)
 	});
 	funcionAjax.done(function(retorno){
 		Mostrar('Pedidos');		
+	});
+	funcionAjax.fail(function(retorno){	
+		alert(retorno);	
+	});	
+}
+
+function ConsultarPorFecha()
+{
+	alert("Consulta");
+	var fecha = $("#datepicker").val();
+	alert(fecha);
+		var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"TraerTotalProductosFecha",
+			fecha: fecha
+		}
+	});
+	funcionAjax.done(function(retorno){
+		alert(retorno);
+		$("#resultado").html(retorno);	
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);	

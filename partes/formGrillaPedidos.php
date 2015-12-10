@@ -68,9 +68,17 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "admin")
 
 
 ?>
+
+<?php
+if($_SESSION['tipo'] == "admin")
+{
+?>
 <div id="contenedor" style="height:900px">
         <div id="mostrarMapa" style="float:left; width:70%; height:650px">
              <script async defer src="https://maps.google.com/maps/api/js?callback=Geolocalizacion.Rutas.mostrarGoogleMaps"></script>
         </div>
         <div id="panelRuta" style="float:right; overflow: auto; width:30%; height: 650px"></div>
     </div>
+<?php
+}
+?>
